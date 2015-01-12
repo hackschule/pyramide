@@ -76,14 +76,16 @@ $().ready(function() {
 
     function _game_logic_loop()
     {
-        game_logic_loop();
+        if (typeof(game_logic_loop) !== 'undefined')
+            game_logic_loop();
         window.key_down = {};
         setTimeout(_game_logic_loop, 66);
     }
 
     function _keydown(e)
     {
-        keydown(e.keyCode);
+        if (typeof(keydown) !== 'undefined')
+            keydown(e.keyCode);
     }
 
     window.addEventListener("keydown", _keydown, false);
